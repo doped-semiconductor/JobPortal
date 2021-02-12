@@ -7,7 +7,7 @@ class mongoDriver{
      */
     constructor(){
         /** connection parameters for remote database */
-        this.url = "mongodb+srv://admin-dev-0:rxP3tvNw_BLYA5a@jpcluster.w95j0.mongodb.net/jobPortalDevDatabase?retryWrites=true&w=majority";
+        this.url = "your uri"
         this.connectionParams={
             useNewUrlParser: true,
             useUnifiedTopology: true 
