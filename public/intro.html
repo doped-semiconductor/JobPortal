@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        body{background-color: rgb(156, 116, 194);}
+        #main{
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 2em;
+            min-height: 10em;
+            max-width: 50vw; 
+            background-color: white; 
+            border-radius: 2em;
+            color: rgb(156, 116, 194);
+        }
+        .question{font-family: Arial;font-size: 2em; margin-bottom: 10px;}
+        input{padding: 1em;width: 90%;margin-top: 1em;border: 2px solid dashed gray;border-radius: 1em;}
+        .mini{display: none;}
+        .thumb{width: 40%;}
+        @media only screen and (max-width: 500px){
+
+            .question{font-size: 1.2em;}
+	
+        }
+    </style>
+</head>
+<body>
+    <div id="lang" hidden>en</div>
+    <div id="main">
+
+        <div class="mini" id="mini7">            
+            <div class="question">
+                Thank You! <br>Please wait for Step 2
+            </div>
+            <!-- <div class="images">
+                <input id="phone" type="text">
+                <img id="next6" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div> -->
+        </div>
+
+        <div class="mini" id="mini6">            
+            <div class="question">
+                What is your mobile number?
+            </div>
+            <div class="images">
+                <input id="phone" type="text">
+                <img id="next6" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+
+        <div class="mini" id="mini5">            
+            <div class="question">
+                Please upload a selfie by clicking on the camera icon
+            </div>
+            <div class="images">
+                <input id="profilepic" type="file" accept="image/*" capture="camera">
+                <img id="next5" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+
+        <div class="mini" id="mini4">            
+            <div class="question">
+                Do you have an aadhaar card? If yes, fill your aadhaar number
+            </div>
+            <div class="images">
+                <input type="text" id="aadhaar">
+                <img id="next4" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+
+        <div class="mini" id="mini3">            
+            <div class="question">
+                Where do you live?
+            </div>
+            <div class="images">
+                <input type="text" id="location">
+                <img id="next3" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+
+        <div class="mini" id="mini2">            
+            <div class="question">
+                What is your age?
+            </div>
+            <div class="images">
+                <input type="text" id="age">
+                <img id="next2" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+
+        <div class="mini" id="mini1">            
+            <div class="question">
+                What is your name?
+            </div>
+            <div class="images">
+                <input type="text" id="name">
+                <img id="next1" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+            </div>
+        </div>
+        
+        <div class="mini" id="mini0" style="display: block;">            
+            <div class="question">
+                Do you want to register yourself?
+            </div>
+            <div class="images">
+                <img class="thumb" id="q0y" src="images/thumbsup.png" alt="Yes" style="float: left;">
+                <a href="/login/lang">
+                    <img class="thumb" id="q0n" src="images/thumbsdown.png" alt="No" style="float: right;">
+                </a>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        /** Response Acceptance */
+        responses = {}
+        document.getElementById("q0y").addEventListener('click',(e)=>{
+            document.getElementById("mini0").style.display = "None"
+            document.getElementById("mini1").style.display = "block"
+        })
+        document.getElementById("next1").addEventListener('click',(e)=>{
+            
+            responses['name'] = document.getElementById("name").value
+
+            document.getElementById("mini1").style.display = "None"
+            document.getElementById("mini2").style.display = "block"
+        })
+        document.getElementById("next2").addEventListener('click',(e)=>{
+            
+            responses['age'] = document.getElementById("age").value
+
+            document.getElementById("mini2").style.display = "None"
+            document.getElementById("mini3").style.display = "block"
+        })
+        document.getElementById("next3").addEventListener('click',(e)=>{
+            
+            responses['location'] = document.getElementById("location").value
+
+            document.getElementById("mini3").style.display = "None"
+            document.getElementById("mini4").style.display = "block"
+        })
+        document.getElementById("next4").addEventListener('click',(e)=>{
+            
+            responses['aadhaar'] = document.getElementById("aadhaar").value
+
+            document.getElementById("mini4").style.display = "None"
+            document.getElementById("mini5").style.display = "block"
+        })
+        document.getElementById("next5").addEventListener('click',(e)=>{
+            
+            responses['profilepic'] = document.getElementById("profilepic").files[0]
+
+            document.getElementById("mini5").style.display = "None"
+            document.getElementById("mini6").style.display = "block"
+        })
+        document.getElementById("next6").addEventListener('click',(e)=>{
+            
+            responses['phone'] = document.getElementById("phone").value
+
+            document.getElementById("mini6").style.display = "None"
+            document.getElementById("mini7").style.display = "block"
+
+            var xhr = new XMLHttpRequest()
+            xhr.open("POST", "/register/newWorker", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            var data = JSON.stringify(responses);
+            xhr.send(data);
+        })
+        // document.getElementById("next5").addEventListener('click',(e)=>{
+            
+        //     responses['profilepic'] = document.getElementById("profilepic").file[0]
+
+        //     document.getElementById("mini5").style.display = "None"
+        //     document.getElementById("mini6").style.display = "block"
+        // })
+    </script>
+    
+</body>
+</html>

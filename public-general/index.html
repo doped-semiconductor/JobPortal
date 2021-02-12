@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <style>
+        *{padding: 0; margin: 0;font-family: Arial;font-size: 20px;}
+        body{background-color: rgb(238, 209, 248);}
+        .button{background-color: rgb(117, 37, 113);color: white; width: 25em;
+        margin: 1em; padding: 1.5em;}
+        .button:hover{transform: scale(1.1);cursor: pointer;}
+        #main{position:absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+        a{text-decoration: none;}
+    </style>
+</head>
+<body class="container">
+    <div id="main">
+        <a href="/login?type=commercial">
+            <div class="button" id="comm">
+                <img style="height: 32px; margin-right: 1em;" src="images/factory.png">
+                Commercial Organization
+            </div>
+        </a>
+        <a href="/login?type=residential">               
+            <div class="button" id="apt">
+                <img style="height: 32px; margin-right: 1em;" src="images/house.png">
+                Residential Organization
+            </div>
+        </a>
+        <a href="/login?type=individual">
+            <div class="button" id="ind">
+                <img style="height: 32px; margin-right: 1em;" src="images/person.png">Individual Worker
+            </div>
+        </a>
+    </div>
+
+    <!-- <script>
+        var comm = document.getElementById("comm")
+        comm.addEventListener('click', (ev)=>{
+            fetch('/login',{ method: 'POST', redirect: 'follow'})
+            .then(data => (console.log(data)))
+            .then(data => (console.log(data)))
+        })
+
+        var apt = document.getElementById("apt")
+        apt.addEventListener('click', (ev)=>{})
+
+        var ind = document.getElementById("ind")
+        ind.addEventListener('click', (ev)=>{})
+    </script> -->
+    
+</body>
+</html>

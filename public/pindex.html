@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body{background-color: rgb(156, 116, 194);}
+        #parent{
+            padding: 2em;
+            border-right: 3px dotted white;    
+            margin-left: 2em;        
+        }
+        #all{
+            padding: 1em;
+            margin-left: 2em;  
+        }
+        .child{
+            padding: 1em;
+            font-size: 2em;
+            font-family: Arial;
+            margin-bottom: 0.5em;
+            margin-left: 0.5em;
+            max-width: 50vw; 
+            background-color: white; 
+            border-radius: 2em;
+            color: rgb(156, 116, 194);
+            text-align: center;
+        }
+        .child2{
+            padding: 1em;
+            font-size: 1.6em;
+            font-family: Arial;
+            margin-bottom: 0.5em;
+            margin-left: 0.5em;
+            max-width: 50vw; 
+            background-color: white; 
+            border-radius: 2em;
+            color: rgb(156, 116, 194);
+            text-align: center;
+        }
+        
+    </style>
+    
+</head>
+<body class="container">
+    <div class="row">
+
+        <div id="parent" class="col-sm-12 col-md-6 col-lg-3">
+            <div class="child"><a href="/new/GuidedSession"><img src="/images/call.png" alt="Phone"></a></div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div id="all" class="row"></div>
+        </div>
+
+    </div>
+    
+    <script>
+        const languageCodes = {//language codes as per ISO 639-1
+            "as": {"name": "Assamese","nativeName": "অসমীয়া"},
+            "bn": {"name": "Bengali","nativeName": "বাংলা"},
+            "bh": {"name":"Bihari","nativeName":"भोजपुरी"},
+            "gu": {"name": "Gujarati","nativeName": "ગુજરાતી"},
+            "hi": {"name": "Hindi","nativeName": "हिंदी"},
+            "en": {"name": "English","nativeName": "English"},
+            "kn": {"name":"Kannada","nativeName":"ಕನ್ನಡ"},
+            "ks":{"name":"Kashmiri","nativeName":"कश्मीरी"},
+            "mr":{"name":"Marathi","nativeName":"मराठी"},
+            "or":{"name":"Oriya","nativeName":"ଓଡ଼ିଆ"},
+            "pa":{"name":"Punjabi","nativeName":"ਪੰਜਾਬੀ"},
+            "sa":{"name":"Sanskrit","nativeName":"संस्कृतम्"},
+            "sd":{"name":"Sindhi","nativeName":"سندھی‎"},
+            "ta":{"name":"Tamil","nativeName":"தமிழ்"},
+            "te":{"name":"Telugu","nativeName":"తెలుగు"}
+        }
+        
+        /** Uncomment line below to get users locale languages*/
+        //var languages = navigator.languages 
+
+        var languages = ['en','hi','gu']//manually adding language prefernce for testing
+
+        var parent = document.getElementById("parent")
+        var all = document.getElementById("all")
+        
+        languages.forEach((e)=>{            
+            var div = document.createElement("div")
+            var ah = document.createElement("a")
+            ah.href = "/new/login/"+e
+            div.innerHTML = languageCodes[e]["nativeName"]
+            div.classList.add("child")
+            ah.appendChild(div)
+            parent.appendChild(ah)
+        })
+
+        for (e in languageCodes){
+            var div = document.createElement("div")
+            div.innerHTML = languageCodes[e]["nativeName"]
+            div.classList.add("child2")
+            div.classList.add("col-sm-4")
+            div.classList.add("col-md-3")
+            div.classList.add("col-lg-3")
+            all.appendChild(div)
+        }
+
+        // languageCodes.forEach((e)=>{            
+        //     var div = document.createElement("div")
+        //     div.innerHTML = languageCodes[e]["nativeName"]
+        //     div.classList.add("child")
+        //     all.appendChild(div)
+        // })
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
