@@ -7,7 +7,7 @@ class mongoDriver{
      */
     constructor(){
         /** connection parameters for remote database */
-        this.url = "your uri"
+        this.url = "mongodb+srv://admin-dev-0:rxP3tvNw_BLYA5a@jpcluster.w95j0.mongodb.net/jobPortalDevDatabase?retryWrites=true&w=majority";
         this.connectionParams={
             useNewUrlParser: true,
             useUnifiedTopology: true 
@@ -29,8 +29,41 @@ class mongoDriver{
         console.log(items)
         if (!items.length){ res = false}       
         client.close();
-        callback(res)
+        if(callback){callback(res)}        
         return res
+    }
+
+    async addJobPost(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('jobPosts').insertOne(data)
+        console.log("Job Post: inserted")
+        client.close();
+        callback(items)
+    }
+
+    async getJobPosts(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('jobPosts').find(data).toArray();
+        client.close();
+        if (callback){callback(items)} 
+    }
+
+    async addWorkerProfile(data){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('workerProfile').insertOne(data)
+        console.log("Worker Profile: inserted")
+        client.close();
+    }
+
+    async getWorkerProfile(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('workerProfile').find(data).toArray();
+        client.close();
+        if (callback){callback(items)} 
     }
 
     async devRegisterUser(data, callback){
@@ -58,7 +91,7 @@ class mongoDriver{
 }
 
 x = new mongoDriver()
-x.checkUserExist({'uname':'dummy2'}, (it)=>{
+x.addJobPost({'uname':'dummy2'}, (it)=>{
     console.log(it)
 })
 
