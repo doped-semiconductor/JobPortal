@@ -13,6 +13,17 @@ class mongoDriver{
             useUnifiedTopology: true 
         }
     }
+    async recruiterLogin(data,callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('recruiterUsers').find(data).toArray();
+        var res = false
+        //console.log(items)
+        if (items.length==1){ res = true}       
+        client.close();
+        if(callback){callback(res)}        
+        return res
+    }
 
     async checkUserEmailExist(data,callback){
         /** 
@@ -26,7 +37,6 @@ class mongoDriver{
         const db = client.db('jobPortalDevDatabase');
         const items = await db.collection('recruiterUsers').find(data).toArray();
         var res = true
-        console.log(items)
         if (!items.length){ res = false}       
         client.close();
         if(callback){callback(res)}        

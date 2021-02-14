@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/createJobPost', (req, res) => {
+  console.log(req.params)
   res.sendFile(__dirname+'/public-general/createJobPost.html')
 })
 app.post('/createJobPost',(req,res)=>{

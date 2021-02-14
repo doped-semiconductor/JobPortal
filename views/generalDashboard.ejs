@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        *{padding: 0; margin: 0;font-family: Arial;}
+        body{background-color: rgb(209, 206, 206);}
+        #topbar{
+            background-color: rgb(128, 82, 146);
+            color: white;
+            width: 100%;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+        a{
+            text-decoration: none; color: white;
+        }
+        h2{color: rgb(128, 82, 146); padding: 1em;}
+        .create{
+            width: 10em; 
+            padding: 1em; 
+            font-size: 1em;
+            background-color: rgb(128, 82, 146);
+            /* rgb(156, 116, 194);  */
+            color: white; 
+            border: 1px dashed white;
+            margin: 1em;
+        }
+        #leftmenu{float: right;}
+        .postCard{
+            background-color: white; 
+            width: 20em; padding: 2em; 
+            border-radius: 2em;
+            margin: 2em;
+            display: inline-block;
+        }
+        .title{font-size: 2em;margin-bottom: 0.5em;}
+        .experience{color: gray;display: inline-block;}
+        .rating{color: gray;display: inline-block;margin-left: 4em;}
+        .entry{
+            border-bottom: 1px solid gray; padding: 0.5em; margin-bottom: 0.5em;
+        }
+        #nopost{
+            width: 20em;margin: 2em;color: gray;
+        }
+        .plink{
+            color: rgb(128, 82, 146);
+        }
+        
+
+        
+    </style>
+</head>
+<body>    
+
+    <div id="topbar">
+        <div style="padding: 1em;">Portal</div>
+        <div style="padding: 1em; margin-right: 1em;">Logged into <%= uname %>
+            <a href="/general">(Logout)</a>
+        </div>        
+    </div>  
+
+    <div id="content">
+        <div id="leftmenu">
+            <form action="/createJobPost" method="get">
+                <input type="text" id="uname" value="<%= uname %>" hidden>
+                <input type="submit" class="create" value="Create Job Post">
+            </form>
+    
+            <form action="/searchWorkerProfiles" method="get">
+                <input type="submit" class="create" value="Search Workers">
+            </form>
+        </div>
+        
+    </div>
+
+    <div>
+        <h2>My Job Posts</h2>
+        <div id="nopost" style="display: block;">
+            No active posts
+        </div>
+        <!-- <div class="postCard">
+            <div class="title">Maid</div>
+            <br>
+            <div class="responses">
+                Total Applicants: 3
+                <hr>
+                <div class="entry">
+                    <div class="name">Sureka Sharma</div>
+                    <div class="experience">Experienced</div>
+                    <div class="rating">Rating 4.3</div>
+                    <div class="link"><a class="plink" href="/worker/phone">View Profile</a></div>
+                </div>                
+            </div>
+        </div> -->
+    </div> 
+</body>
+</html>
