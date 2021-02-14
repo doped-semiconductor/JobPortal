@@ -20,7 +20,8 @@ This repository is a prototype demo for a Job Portal primarily aimed to recruit 
 1. Install NodeJS and Node Package Manager(https://nodejs.org/en/)
 2. Clone the current repository
 ```git clone https://github.com/doped-semiconductor/JobPortal```
-3. Install dependencies
+3. Open the JobPortal folder
+4. Install dependencies using this command in CLI
 ```npm install```
-4. Run the server
+5. Run the server using this command in CLI
 ```node server-main.js```
