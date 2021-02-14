@@ -22,7 +22,7 @@ introQuestions = {
 }
 
 router.get('/login/:lang',(req,res)=>{
-    res.send("Hi")
+    res.sendFile(__dirname+"/public/intro.html")
 })
 
 module.exports = router
