@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body{background-color: rgb(156, 116, 194);font-family: Arial;}
+        #searchbar{width: 20em; padding: 1em; font-size: 1em;}
+        .searchbtn{width: 5em; padding: 1em; font-size: 1em;
+        background-color: rgb(156, 116, 194); color: white; border: 1px dashed white;}
+        h2{color: white;}
+        .postCard{background-color: white; width: 20em; padding: 2em; border-radius: 2em;}
+        .title{font-size: 2em;margin-bottom: 0.5em;}
+        .date{color: gray;}
+        .experience{color: gray;display: inline-block;}
+        .rating{color: gray;display: inline-block;margin-left: 4em;}
+        .entry{
+            border-bottom: 1px solid gray; padding: 0.5em; margin-bottom: 0.5em;
+        }
+        a{
+            text-decoration: none;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="/workerSearch" method="get">
+            <input id="searchbar" type="text" placeholder="Search for worker profiles by keywords">
+            <input class="searchbtn" type="submit" value="Search">
+        </form>   
+        
+        <form action="/createJobPost" method="get">
+            <input class="searchbtn" style="width: 12em;float: right;" type="submit" value="Create Post">
+        </form>   
+    </div>
+    <hr>
+    <div>
+        <h2>My Job Posts</h2>
+
+        <div class="postCard">
+            <div class="title">Maid</div>
+            <div class="date">Posted: 12 Feb 2021</div>
+            <br>
+            <div class="responses">
+                Total Applicants: 3
+                <hr>
+                <div class="entry">
+                    <div class="name">Sureka Sharma</div>
+                    <div class="experience">Experienced</div>
+                    <div class="rating">Rating 4.3</div>
+                    <div class="link"><a href="/worker/2">View Profile</a></div>
+                </div>
+
+                <div class="entry">
+                    <div class="name">Durga S</div>
+                    <div class="experience">Experienced</div>
+                    <div class="rating">Rating 3.8</div>
+                    <div class="link"><a href="/worker/3">View Profile</a></div>
+                </div>
+
+                <div class="entry">
+                    <div class="name">Mika</div>
+                    <div class="experience">Experienced</div>
+                    <div class="rating">Rating 3.5</div>
+                    <div class="link"><a href="/worker/4">View Profile</a></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+</body>
+</html>

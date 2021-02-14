@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        body{background-image: url('images/login-bg.jpg');background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;}
+        
         input{width: 15em; padding: 1em; margin-bottom: 0.5em; border-radius: 1em;}
         .button{background-color: rgb(128, 99, 155); color: white;}
         #login{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
-        #miniLogin{}
+        /* #miniLogin{} */
     </style>
 </head>
 <body>
@@ -22,7 +20,7 @@
             <input type="text" name="type" id="type" hidden>
             <input class="button" type="submit" value="Login">
         </form>
-        <form action="/register">
+        <form action="/register/newUser">
             <input class="button" type="submit" value="Register">
         </form>
     </div>

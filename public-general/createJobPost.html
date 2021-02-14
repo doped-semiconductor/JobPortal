@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job Post</title>
+    <style>
+        body{display: flex; justify-content: space-around;background-color: rgb(156, 116, 194);}
+        div{display: flex; justify-content: space-around;position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+        input{max-width: 80%; width: 30em; padding: 1em;display: block;margin: 1em;}
+        select{max-width: 80%; width: 40em; padding: 1em;display: block;margin: 1em;}
+    </style>
+</head>
+<body>
+    <div>
+    <form action="/createJobPost" method="post">
+        <input type="text" name="title" placeholder="Job Title">
+        <input type="text" name="location" placeholder="Location">
+        <select id="payFrequency" name="payFrequency">
+            <option value="p" selected disabled hidden>Payment Frequency</option>
+            <option value="OneTime">One Time</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+        </select>
+        <input type="text" name="min" placeholder="Minimum Salary">
+        <input type="text" name="max" placeholder="Maximum Salary">
+        <select id="jobCategory" name="jobCategory">
+            <option value="p" selected disabled hidden>Job Category</option>
+            <option value="Cook">Cook</option>
+            <option value="Sweeper">Sweeper</option>
+            <option value="Maid">Maid</option>
+            <option value="Sewing, Stitching, Tailoring">Sewing, Stitching, Tailoring</option>
+            <option value="Beauty Services">Beauty Services</option>
+            <option value="Baby Care">Baby Care</option>
+            <option value="Driver">Driver</option>
+            <option value="Factory Worker">Factory Worker</option>
+            <option value="Warehouse Worker">Warehouse Worker</option>
+        </select>
+        <input style="width: 40em; background-color: rgb(156, 116, 194);color: white;border: 2px dashed white;" type="submit" value="Add Job Post">
+    </form>
+    </div>
+</body>
+</html>

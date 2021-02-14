@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        body{display: flex; justify-content: space-around;background-color: rgb(156, 116, 194);}
+        div{display: flex; justify-content: space-around;position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+        input{max-width: 80%; width: 30em; padding: 1em;display: block;margin: 1em;}
+        select{max-width: 80%; width: 40em; padding: 1em;display: block;margin: 1em;}
+    
+    </style>
 </head>
 <body>
     <div>
-        
+        <form action="/register/newUser" method="post">
+            <input type="text" name="type" id="type" style="display: none;">
+            <input type="text" name="Name" placeholder="Name">
+            <input type="text" name="location" placeholder="Location">
+
+            <input type="text" name="org" placeholder="Organization">
+            <input type="text" name="apt" placeholder="Apartment/Locality">
+            
+            <input type="text" name="phone" placeholder="Phone">
+            <input type="text" name="email" placeholder="Email">
+
+            <input type="password" name="pword" placeholder="Password">
+            
+            <input style="width: 40em; background-color: rgb(156, 116, 194);color: white;border: 2px dashed white;" type="submit" value="Register">
+        </form>
     </div>
     <script>
         var type = new URLSearchParams(window.location.search).get('type')
         var typeinput = document.getElementById('type')
         typeinput.value = type
+        typeinput.display.style = "none"
     </script>
 </body>
 </html>
