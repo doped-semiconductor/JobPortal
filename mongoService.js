@@ -14,7 +14,7 @@ class mongoDriver{
         }
     }
 
-    async checkUserExist(data,callback){
+    async checkUserEmailExist(data,callback){
         /** 
          *To check if a username is already taken while registering a new user
          * 
@@ -24,13 +24,37 @@ class mongoDriver{
          *  */
         const client = await MongoClient.connect(this.url,this.connectionParams)
         const db = client.db('jobPortalDevDatabase');
-        const items = await db.collection('userRegisteration').find(data).toArray();
+        const items = await db.collection('recruiterUsers').find(data).toArray();
         var res = true
         console.log(items)
         if (!items.length){ res = false}       
         client.close();
         if(callback){callback(res)}        
         return res
+    }
+
+    async addRecruiter(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('recruiterUsers').insertOne(data)
+        client.close();
+        if (callback){callback(items)}
+    }
+
+    async searchWorker(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('workerProfile').find(data).toArray();
+        client.close();
+        if (callback){callback(items)} 
+    }
+
+    async getMyJobPosts(data, callback){
+        const client = await MongoClient.connect(this.url,this.connectionParams)
+        const db = client.db('jobPortalDevDatabase');
+        const items = await db.collection('jobPosts').find(data).toArray();
+        client.close();
+        if (callback){callback(items)} 
     }
 
     async addJobPost(data, callback){
@@ -90,9 +114,9 @@ class mongoDriver{
     }
 }
 
-x = new mongoDriver()
-x.addJobPost({'uname':'dummy2'}, (it)=>{
-    console.log(it)
-})
+// x = new mongoDriver()
+// x.addJobPost({'uname':'dummy2'}, (it)=>{
+//     console.log(it)
+// })
 
 module.exports.mongoDriver = mongoDriver

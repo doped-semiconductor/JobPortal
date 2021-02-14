@@ -22,7 +22,7 @@
         .question{font-family: Arial;font-size: 2em; margin-bottom: 10px;}
         input{padding: 1em;width: 90%;margin-top: 1em;border: 2px solid dashed gray;border-radius: 1em;}
         .mini{display: none;}
-        .thumb{width: 40%;}
+        /* .thumb{width: 40%;} */
         @media only screen and (max-width: 500px){
 
             .question{font-size: 1.2em;}
@@ -33,15 +33,30 @@
 <body>
     <div id="lang" hidden>en</div>
     <div id="main">
+        <!-- edit -->
+        <div class="mini" id="mini9">            
+            <div class="question">
+                Thank you for registering! You will get an SMS about your profile soon!
+            </div>
+        </div>
+        <div class="mini" id="mini8">            
+            <div class="question">
+                Are you looking for cooking jobs?
+            </div>
+            <div class="images">
+                <img class="thumb" id="q8y" src="/images/thumbsup.png" alt="Yes" style="float: left;">
+                <img class="thumb" id="q8n" src="/images/thumbsdown.png" alt="No" style="float: right;">                                
+            </div>
+        </div>
 
         <div class="mini" id="mini7">            
             <div class="question">
-                Thank You! <br>Please wait for Step 2
+                Are you looking for cooking jobs?
             </div>
-            <!-- <div class="images">
-                <input id="phone" type="text">
-                <img id="next6" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
-            </div> -->
+            <div class="images">
+                <img class="thumb" id="q7y" src="/images/thumbsup.png" alt="Yes" style="float: left;">
+                <img class="thumb" id="q7n" src="/images/thumbsdown.png" alt="No" style="float: right;">                                
+            </div>
         </div>
 
         <div class="mini" id="mini6">            
@@ -50,7 +65,7 @@
             </div>
             <div class="images">
                 <input id="phone" type="text">
-                <img id="next6" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next6" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
 
@@ -60,7 +75,7 @@
             </div>
             <div class="images">
                 <input id="profilepic" type="file" accept="image/*" capture="camera">
-                <img id="next5" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next5" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
 
@@ -70,7 +85,7 @@
             </div>
             <div class="images">
                 <input type="text" id="aadhaar">
-                <img id="next4" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next4" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
 
@@ -80,7 +95,7 @@
             </div>
             <div class="images">
                 <input type="text" id="location">
-                <img id="next3" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next3" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
 
@@ -90,7 +105,7 @@
             </div>
             <div class="images">
                 <input type="text" id="age">
-                <img id="next2" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next2" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
 
@@ -100,7 +115,7 @@
             </div>
             <div class="images">
                 <input type="text" id="name">
-                <img id="next1" style="float: right; height: 3em; margin-top: 0.5em;" src="images/next.png" alt="Next">                
+                <img id="next1" style="float: right; height: 3em; margin-top: 0.5em;" src="/images/next.png" alt="Next">                
             </div>
         </div>
         
@@ -109,9 +124,9 @@
                 Do you want to register yourself?
             </div>
             <div class="images">
-                <img class="thumb" id="q0y" src="images/thumbsup.png" alt="Yes" style="float: left;">
+                <img class="thumb" id="q0y" src="/images/thumbsup.png" alt="Yes" style="float: left;">
                 <a href="/login/lang">
-                    <img class="thumb" id="q0n" src="images/thumbsdown.png" alt="No" style="float: right;">
+                    <img class="thumb" id="q0n" src="/images/thumbsdown.png" alt="No" style="float: right;">
                 </a>
                 
             </div>
@@ -168,17 +183,28 @@
             document.getElementById("mini6").style.display = "None"
             document.getElementById("mini7").style.display = "block"
 
-            var xhr = new XMLHttpRequest()
-            xhr.open("POST", "/register/newWorker", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText);
-                }
-            };
-            var data = JSON.stringify(responses);
-            xhr.send(data);
+            // var xhr = new XMLHttpRequest()
+            // xhr.open("POST", "/register/newWorker", true);
+            // xhr.setRequestHeader("Content-Type", "application/json");
+            // xhr.onreadystatechange = function () {
+            //     if (xhr.readyState === 4 && xhr.status === 200) {
+            //         console.log(xhr.responseText);
+            //     }
+            // };
+            // var data = JSON.stringify(responses);
+            // xhr.send(data);
         })
+
+        document.getElementById("mini7").addEventListener('click',(e)=>{
+            
+            document.getElementById("mini7").style.display = "None"
+            document.getElementById("mini8").style.display = "block"})
+
+        document.getElementById("mini8").addEventListener('click',(e)=>{
+            
+            document.getElementById("mini8").style.display = "None"
+            document.getElementById("mini9").style.display = "block"})
+
         // document.getElementById("next5").addEventListener('click',(e)=>{
             
         //     responses['profilepic'] = document.getElementById("profilepic").file[0]

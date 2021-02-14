@@ -15,12 +15,13 @@
 <body>
     <div id="login">
         <form id="miniLogin" action="/login" method="post">
-            <input type="email" name="uname" placeholder="Email ID"> <br>
-            <input type="password" name="pword" placeholder="Password"> <br>
+            <input type="email" name="uname" placeholder="Email ID" required> <br>
+            <input type="password" name="pword" placeholder="Password" required> <br>
             <input type="text" name="type" id="type" hidden>
             <input class="button" type="submit" value="Login">
         </form>
         <form action="/register/newUser">
+            <input type="text" name="type" id="type2" hidden>
             <input class="button" type="submit" value="Register">
         </form>
     </div>
@@ -28,6 +29,8 @@
         var type = new URLSearchParams(window.location.search).get('type')
         var typeinput = document.getElementById('type')
         typeinput.value = type
+        var typeinput2 = document.getElementById('type2')
+        typeinput2.value = type
     </script>
     
 </body>

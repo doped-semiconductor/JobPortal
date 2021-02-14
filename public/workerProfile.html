@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body{font-family: Arial;
+        background-color: rgb(133, 90, 163);}
+        .card{
+            background-color: white;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 2em;
+            border-radius: 2em;
+        }
+        .row{padding: 1em; display: block; margin: 1em;}
+        .label{float: left; color: gray;}
+        .entry{float: right;font-size: 1.2em;color: rgb(133, 90, 163);}
+        input{
+            background-color: rgb(219, 40, 40);
+            color: white; font-size: 1.2em;
+            padding: 1em; 
+            margin: 1em;
+            border: none;
+            border-radius: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="row">
+            <div class="label">
+                Name
+            </div>
+            <div class="entry">
+                Sureka Sharma
+            </div>
+        </div> 
+    
+        <div class="row">
+            <div class="label">
+                Phone
+            </div>
+            <div class="entry">
+                7829387938
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="label">
+                Rating
+            </div>
+            <div class="entry">
+                4.3
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="label">
+                Location
+            </div>
+            <div class="entry">
+                Bangalore
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="label">
+                Experience
+            </div>
+            <div class="entry">
+                Maid, Cook
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="label">
+                Verification
+            </div>
+            <div class="entry">
+                Aadhaar Card
+            </div>
+        </div>
+        <form action="/report">
+            <input type="text" name="uname" value="" hidden>
+            <input type="submit" value="Report Broker or Fraud">
+        </form>
+
+    </div>
+    
+</body>
+</html>

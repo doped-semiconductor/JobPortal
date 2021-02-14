@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository is a prototype demo for a Job Portal primarily aimed to recruit women in blue collar jobs in India.
+This repository is a prototype demo for a Job Portal primarily aimed to recruit women for blue collar jobs in India.
 
 ## Features
 
