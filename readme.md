@@ -9,7 +9,6 @@ This repository is a prototype demo for a Job Portal primarily aimed to recruit 
 ### Applicants
 * Simplified registeration and login portal
 * Search job posts
-* Text to speech feature
 
 ### Recruiters
 * Add job postings
@@ -25,3 +24,9 @@ This repository is a prototype demo for a Job Portal primarily aimed to recruit 
 ```npm install```
 5. Run the server using this command in CLI
 ```node server-main.js```
+6. Open https://localhost.com:3000/general
+
+
+## Features to be Implemented in the future
+* Text to speech API for worker registeration
+* Support for regional languages
